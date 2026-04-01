@@ -11,3 +11,6 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+
+jwt:
+  secretKey: huoiuwwwww82m87NRW0F8Ff90DhuirjffjzuioOU87rwaumiu9a8oauf4skv9EDa9gMECFgfadUafIjfisDA

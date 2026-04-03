@@ -1,5 +1,7 @@
 package com.om.projects_F.backend.service;
 
+import com.om.projects_F.backend.entity.User;
+import com.om.projects_F.backend.exception.ResourceNotFoundException;
 import com.om.projects_F.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,5 +17,9 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findUserByEmail(username).orElse(null);
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("There is No User with Id : " + id));
     }
 }
